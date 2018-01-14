@@ -155,27 +155,10 @@ func (ix *IndexWriter) Add(name string, f io.Reader) {
 			}
 			return
 		}
-		if n > maxFileLen {
-			if ix.LogSkip {
-				log.Printf("%s: too long, ignoring\n", name)
-			}
-			return
-		}
-		if linelen++; linelen > maxLineLen {
-			if ix.LogSkip {
-				log.Printf("%s: very long lines, ignoring\n", name)
-			}
-			return
-		}
+		linelen++
 		if c == '\n' {
 			linelen = 0
 		}
-	}
-	if ix.trigram.Len() > maxTextTrigrams {
-		if ix.LogSkip {
-			log.Printf("%s: too many trigrams, probably not text, ignoring\n", name)
-		}
-		return
 	}
 	ix.totalBytes += n
 
