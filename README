@@ -9,7 +9,7 @@ see http://swtch.com/~rsc/regexp/regexp4.html.
 
 To install:
 
-	go get github.com/google/codesearch/cmd/...
+	go get github.com/pengyu/codesearch/cmd/...
 
 Use "go get -u" to update an existing installation.
 
